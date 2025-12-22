@@ -1,0 +1,41 @@
+{
+  "name": "demo_xpipe",
+  "strategy": "xpipe",
+  "num_stages": 4,
+  "num_mini": 3,
+  "num_micro": 2,
+  "time_unit": "us",
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward":  [200, 210, 190, 205],
+    "backward": [200, 190, 210, 200]
+  },
+  "insertions": [
+    {
+      "name": "weight_prediction",
+      "op": "Predict",
+      "phase": "forward",
+      "anchor": "host_start",
+      "offset": 0,
+      "duration": { "ratio_of_host": 0.10 },
+      "lane": "custom",
+      "stage_selector": "all",
+      "micro_selector": "all",
+      "mini_selector": "all"
+    },
+    {
+      "name": "optimizer_step",
+      "op": "Update",
+      "phase": "backward",
+      "anchor": "host_end",
+      "offset": 0,
+      "duration": { "ratio_of_host": 0.05 },
+      "lane": "custom",
+      "stage_selector": "all",
+      "micro_selector": [1],
+      "mini_selector": "all"
+    }
+  ],
+  "emit": { "include_comments": true }
+}
+

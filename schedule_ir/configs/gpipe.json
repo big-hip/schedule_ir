@@ -1,0 +1,14 @@
+{
+  "name": "demo_gpipe",
+  "strategy": "gpipe",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 4,
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward": [200, 200, 200, 200],
+    "backward": [200, 200, 200, 200]
+  },
+  "emit": { "include_comments": true }
+}
+

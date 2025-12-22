@@ -1,0 +1,15 @@
+{
+  "name": "demo_interleaved",
+  "strategy": "interleaved",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 4,
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward": [200, 210, 190, 205],
+    "backward": [200, 210, 190, 205]
+  },
+  "meta": { "virtual_chunks": 2 },
+  "emit": { "include_comments": true }
+}
+

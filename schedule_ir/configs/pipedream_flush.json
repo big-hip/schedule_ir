@@ -1,0 +1,14 @@
+{
+  "name": "demo_pipedream_flush",
+  "strategy": "pipedream_flush",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 4,
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward": [180, 200, 210, 190],
+    "backward": [200, 190, 210, 195]
+  },
+  "emit": { "include_comments": true }
+}
+

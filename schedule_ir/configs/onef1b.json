@@ -1,0 +1,14 @@
+{
+  "name": "demo_1f1b",
+  "strategy": "1f1b",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 4,
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward": [190, 210, 200, 195],
+    "backward": [200, 200, 205, 190]
+  },
+  "emit": { "include_comments": true }
+}
+

@@ -1,0 +1,28 @@
+{
+  "name": "demo_dualpipe",
+  "strategy": "dualpipe",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 4,
+  "time_unit": "us",
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward":  [200, 210, 190, 205],
+    "backward": [200, 190, 210, 200]
+  },
+  "manual": {
+    "priority": ["Bx", "F", "Bw"],
+    "bx_chain": "strict",
+    "bw_after_bx": true,
+    "bw_fill": { "mode": "safe", "lookahead": 60 },
+    "rules": [
+      {
+        "select": { "stages": "all", "minis": "all", "micros": "all", "op": "Bw" },
+        "after":  { "op": "Bx", "same_micro": true, "same_stage": true },
+        "offset": 0.0
+      }
+    ]
+  },
+  "emit": { "include_comments": true }
+}
+

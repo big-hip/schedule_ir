@@ -1,0 +1,28 @@
+{
+  "name": "demo_free_any",
+  "strategy": "free_any",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 4,
+  "time_unit": "us",
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward":  [200, 210, 190, 205],
+    "backward": [210, 200, 210, 195]
+  },
+  "backward_split": { "bx_ratio": 0.55 },
+  "manual": {
+    "priority": ["Bx", "F", "Bw"],
+    "bx_chain": "strict",
+    "bw_after_bx": true,
+    "rules": [
+      {
+        "select": { "stages": "all", "minis": "all", "micros": "all", "op": "Bw" },
+        "after":  { "op": "Bx", "same_micro": true, "same_stage": true },
+        "offset": 0.0
+      }
+    ]
+  },
+  "emit": { "include_comments": true }
+}
+

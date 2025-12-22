@@ -1,0 +1,21 @@
+{
+  "name": "demo_zerobubble_h1",
+  "strategy": "zerobubble",
+  "zb_mode": "H1",
+  "num_stages": 4,
+  "num_mini": 1,
+  "num_micro": 8,
+  "time_unit": "us",
+  "lanes": { "compute": 0, "comm": 1, "custom": 2 },
+  "stage_durations": {
+    "forward":  [200, 210, 190, 205],
+    "backward": [210, 200, 210, 195]
+  },
+  "backward_split": { "bx_ratio": 0.55 },
+  "comm": {
+    "p2p": 12,
+    "allreduce": 25
+  },
+  "emit": { "include_comments": true }
+}
+
