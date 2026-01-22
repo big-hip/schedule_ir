@@ -1,0 +1,23 @@
+# --- Python 构建与安装产物 (pip install -e .) ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- schedule_ir 工具生成的输出文件 ---
+# 默认生成的调度数据
+out.ndjson
+*.ndjson
+
+# 默认生成的甘特图
+pp_gantt.png
+*.png
+
+# --- IDE 与 系统文件 (可选推荐) ---
+.idea/
+.vscode/
+.DS_Store
